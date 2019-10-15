@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Today</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<style>
+    .jumbotron{
+        background-image: url("/static/mission_to_mars.png");
+        background-size: cover;
+        height:600px; 
+    }  
+    h1{
+        margin-bottom:50px; 
+    } 
+    #news{
+        margin-bottom:50px; 
+    }
+    h3{
+        margin-bottom:20px;
+    }
+    #images{
+        margin-top: 50px;
+    }
+    
+</style>
+
+<body>
+ 
+
+    <div class="jumbotron text-center" >
+      <h1>Mars Today</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get the Latest on Mars!</a></p>
+    </div>
+    <div class="container">
+        <!-- News -->
+        <h3>Latest News</h3>
+        <div class="row" id="news">
+            <div class="col-md-12">
+                <h3 class="heading">{{info.news_title}} </h3>
+                <h4>{{info.news_p}}</h4>
+            </div>
+        </div>
+        <!-- featured image -->
+        <div class = "row" id ="feature_image">
+            <div class="col-lg-6">
+                <h3 class="heading">Latest Image</h3>
+                <img class="img-responsive" src="{{ info.fiu }}"></img>
+            </div>
+            <!-- Weather -->
+            <div class="col-lg-6" id="weather">
+                    <h3 class="heading">Mars Weather</h3>
+                    <div class = "well" id="alsoweather">
+                        <h4> {{info.mars_weather}}</h4>
+                    </div>  
+                    <div id ="table">
+                        <h3 class="heading">Mars Facts</h3>
+                        {{info.mars_facts| safe}}
+                    </div>  
+            </div>
+        </div>
+        
+        <div class ="well" id= "images">
+            <h2 class = "text-center">Mars Images</h2>
+            <div class = "row" id ="images">
+                <div class="col-lg-6">
+                    <h3 class="heading">{{info.images[0].title}}</h3>
+                    <img class="img-responsive" src="{{info.images[0].img_url}}"></img>
+                </div>
+                <div class="col-lg-6">
+                        <h3 class="heading">{{info.images[1].title}}</h3>
+                    <img class="img-responsive" src="{{info.images[1].img_url}}"></img>
+                </div>    
+            </div>
+            <div class = "row" id ="images">
+                <div class="col-lg-6">
+                        <h3 class="heading">{{info.images[2].title}}</h3>
+                        <img class="img-responsive" src="{{info.images[2].img_url}}"></img>
+                </div>
+                <div class="col-lg-6">
+                        <h3 class="heading">{{info.images[3].title}}</h3>
+                        <img class="img-responsive" src="{{info.images[3].img_url}}"></img>
+                </div> 
+            </div>
+         </div>   
+
+    </div>
+</body>
+
+</html>
