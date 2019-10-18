@@ -12,6 +12,7 @@ app = Flask(__name__, template_folder= "templates")
 # Local
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/info"
 #production: 
+
 app.config["MONGO_URI"] = ENV['MONGO_URI']
 mongo = PyMongo(app)
 
