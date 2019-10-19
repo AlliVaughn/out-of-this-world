@@ -16,7 +16,7 @@ app = Flask(__name__, template_folder= "templates")
 #production: 
 MONGO_URI= os.environ.get('MONGO_URI')
 # app.config["MONGO_URI"] = ENV['MONGO_URI']
-mongo = PyMongo(app)
+# mongo = PyMongo(app)
 
 client = MongoClient(MONGO_URI)
 db = client['heroku_zz25v35h']
