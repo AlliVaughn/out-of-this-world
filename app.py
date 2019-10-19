@@ -1,7 +1,7 @@
 #import libraries and custom scraping 
 import os
 from flask import Flask, render_template, redirect, url_for, redirect, request
-from flask_pymongo import PyMongo
+# from flask_pymongo import PyMongo
 import scrape_space
 import numpy as np
 import pandas as pd
