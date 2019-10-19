@@ -4,5 +4,6 @@
 
 ## Images of the Application 
 ------------------------------------------------------------------------------
-![App1](https://raw.githubusercontent.com/AlliVaughn/web-scraping-challenge/master/mission_to_mars1.png)
-![App2](https://raw.githubusercontent.com/AlliVaughn/web-scraping-challenge/master/mission_to_mars2.png)
+![App 1](https://github.com/AlliVaughn/web-scraping-challenge/blob/master/mission-to-mars1.png)
+![App 2](https://github.com/AlliVaughn/web-scraping-challenge/blob/master/mission-to-mars2.png)
+
