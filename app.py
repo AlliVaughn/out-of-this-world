@@ -1,26 +1,16 @@
 #import libraries and custom scraping 
-import os
 from flask import Flask, render_template, redirect, url_for, redirect, request
 from flask_pymongo import PyMongo
 import scrape_space
 import numpy as np
 import pandas as pd
-from pymongo import MongoClient 
 
 
 app = Flask(__name__, template_folder= "templates")
- 
-#db 
-# Local
-app.config["MONGO_URI"] = "mongodb://localhost:27017/info"
-#production: 
-# MONGO_URI= os.environ.get('MONGO_URI')
-# app.config["MONGO_URI"] = ENV['MONGO_URI']
-mongo = PyMongo(app)
 
-# client = MongoClient(MONGO_URI)
-# db = client['heroku_zz25v35h']
-#collection = db.visitorInfo
+#db 
+app.config["MONGO_URI"] = "mongodb://localhost:27017/info"
+mongo = PyMongo(app)
 
 
 #routes
@@ -46,4 +36,4 @@ def scraper():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
