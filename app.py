@@ -1,9 +1,9 @@
 #import libraries and custom scraping 
 from flask import Flask, render_template, redirect, url_for, redirect, request
 from flask_pymongo import PyMongo
-import scrape_space
 import numpy as np
 import pandas as pd
+import scrape_space
 
 
 app = Flask(__name__, template_folder= "templates")
@@ -18,7 +18,7 @@ mongo = PyMongo(app)
 def index():
     # define info query to find the info  
     info = mongo.db.info.find_one()
-    #render template and pass info from db in 
+    #render index template and pass info from db
     return render_template("index.html", info = info)
 
 

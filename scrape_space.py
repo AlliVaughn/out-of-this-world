@@ -18,11 +18,13 @@ def start_browser():
 
 
 def scrape():
+    #init browser for scraping 
+    browser = start_browser()
+
     # All info goes in this info dict 
     info = {}
 
     ####### News #######
-    browser = start_browser()
     browser.visit(url_nasa)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
@@ -35,7 +37,7 @@ def scrape():
     info['news_p'] = news_p
 
     #######Featured image #######
-    browser = start_browser()
+    # browser = start_browser()
     browser.visit(url_jpl)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
@@ -50,7 +52,7 @@ def scrape():
     info['fiu'] = fiu
 
     ####### Weather #######
-    browser = start_browser()
+    # browser = start_browser()
     browser.visit(url_weather)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
@@ -61,22 +63,23 @@ def scrape():
     info['mars_weather'] = mars_weather
 
     ####### Facts #######
-    browser = start_browser()
+    # browser = start_browser()
     browser.visit(url_facts)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
 
     # find & define
+
     df = pd.read_html(url_facts, attrs={'id': 'tablepress-p-mars'})[0]
     df = df.set_index(0).rename(columns={1: "value"})
     del df.index.name
-    mars_facts = df.to_html
+    mars_facts = df.to_html(header="true", table_id="table")
     #jinja in template to access 
     
     info['mars_facts'] = mars_facts
 
     ####### Images #######
-    browser = start_browser()
+    # browser = start_browser()
     browser.visit(url_imgs)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
@@ -102,21 +105,26 @@ def scrape():
     # print(img3) # debug
     browser.back()
 
-
     # Img 4 
     t4 = browser.find_by_tag('h3')[3].text
     browser.find_by_css('.thumb')[3].click()
     img4 = browser.find_by_text('Sample')['href']
     # print(img4) # debug
+    browser.quit()
 
+    # return the images and titles for dislay
+    info['t1'] = t1 
+    info['img1'] = img1
 
-    images = [
-            {'title': t1, 'img_url': img1},
-            {'title': t2, 'img_url': img2},
-            {'title': t3, 'img_url': img3},
-            {'title': t4, 'img_url': img4}
-        ]
+    info['t2'] = t2 
+    info['img2'] = img2
 
+    info['t3'] = t3 
+    info['img3'] = img3
+
+    info['t4'] = t4 
+    info['img4'] = img4
+    
     #return that info dict
     return info
     

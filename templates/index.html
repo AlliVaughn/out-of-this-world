@@ -58,8 +58,8 @@
                         <h4> {{info.mars_weather}}</h4>
                     </div>  
                     <div id ="table">
-                        <h3 class="heading">Mars Facts</h3>
-                        {{info.mars_facts| safe}}
+                    <h3 class="heading">Mars Facts</h3>
+                        {{info.mars_facts | safe}}
                     </div>  
             </div>
         </div>
@@ -68,24 +68,28 @@
             <h2 class = "text-center">Mars Images</h2>
             <div class = "row" id ="images">
                 <div class="col-lg-6">
-                    <h3 class="heading">{{info.images[0].title}}</h3>
-                    <img class="img-responsive" src="{{info.images[0].img_url}}"></img>
+                    <h3 class="heading">{{info.t1}}</h3>
+
+                    <img class="img-responsive" src="{{ info.img1 }}"></img>
                 </div>
                 <div class="col-lg-6">
-                        <h3 class="heading">{{info.images[1].title}}</h3>
-                    <img class="img-responsive" src="{{info.images[1].img_url}}"></img>
+                   <h3 class="heading">{{info.t2}}</h3>
+
+                    <img class="img-responsive" src="{{ info.img2 }}"></img>
                 </div>    
             </div>
             <div class = "row" id ="images">
                 <div class="col-lg-6">
-                        <h3 class="heading">{{info.images[2].title}}</h3>
-                        <img class="img-responsive" src="{{info.images[2].img_url}}"></img>
+                        <h3 class="heading">{{info.t3}}</h3>
+
+                    <img class="img-responsive" src="{{ info.img3 }}"></img>
                 </div>
                 <div class="col-lg-6">
-                        <h3 class="heading">{{info.images[3].title}}</h3>
-                        <img class="img-responsive" src="{{info.images[3].img_url}}"></img>
+                       <h3 class="heading">{{info.t4}}</h3>
+
+                    <img class="img-responsive" src="{{ info.img4 }}"></img>
                 </div> 
-            </div>
+            </div>            
          </div>   
 
     </div>
